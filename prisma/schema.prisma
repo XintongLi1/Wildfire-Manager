@@ -65,4 +65,8 @@ model Area {
 enum Role {
   OrdinaryUser
   Firefighter
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 20eb95b7b90a530d40ca4f47d108e3053257c342

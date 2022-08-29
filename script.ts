@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Prisma, PrismaClient, Role } from "@prisma/client";
+=======
+import { PrismaClient, Role } from "@prisma/client";
+>>>>>>> 20eb95b7b90a530d40ca4f47d108e3053257c342
 
 const prisma = new PrismaClient();
 
@@ -14,6 +18,7 @@ const addUser = async (_name, _type, _contact, _address = "") => {
   console.log(user);
 };
 
+<<<<<<< HEAD
 // const addRecord = async(_coordinateID, _coordinate, _time: Date, _windspeed, _proploss, _casualties, _posts=[]) => {
 //   await prisma.wildfireRecords.create({
 //     data: {
@@ -66,6 +71,8 @@ const addUser = async (_name, _type, _contact, _address = "") => {
 //       },
 //     });
 //   };
+=======
+>>>>>>> 20eb95b7b90a530d40ca4f47d108e3053257c342
 
 const addArea = async (_country, _continent, _region = "") => {
   const area =
@@ -113,6 +120,63 @@ export const cleanupDatabase = () => {
   return Promise.all(modelNames.map((model) => prisma[model].deleteMany()));
 };
 
+<<<<<<< HEAD
+=======
+// const addRecord = async(_coordinateID, _coordinate, _time: Date, _windspeed, _proploss, _casualties, _posts=[]) => {
+//   await prisma.wildfireRecords.create({
+//     data: {
+//       coordinateID: _coordinateID,
+//       coordinate: _coordinate,
+//       time: _time,
+//       windspeed: _windspeed,
+//       propertyLoss: _proploss,
+//       casualties: _casualties,
+//       posts: []!
+//     }
+//   })
+
+// }
+
+// const addPost = async (_authorID, _author, _time: Date, _images=[], _description="", _recordID=null, _record=null) => {
+//   if (_recordID){
+//     await prisma.post.create({
+//       data: {
+//         authorId: _authorID,
+//         author: _author,
+//         time: _time,
+//         description: _description,
+//         recordID: _recordID,
+//         record: _record
+//       },
+//     });
+//   }
+//   else {
+//     await prisma.post.create({
+//       data: {
+//         authorId: _authorID,
+//         author: _author,
+//         time: _time,
+//         description: _description
+//       },
+//     });
+//   }
+
+//   };
+
+const addImage = async (_url, _postID) => {
+    await prisma.image.create({
+      data: {
+        url: _url,
+        postID: _postID,
+        post: {
+          connect: {id: _postID}
+        }
+      },
+    });
+  };
+
+
+>>>>>>> 20eb95b7b90a530d40ca4f47d108e3053257c342
 async function main() {
   // addUser("Max", Role.OrdinaryUser, "12434252");
   // addUser("Max", Role.OrdinaryUser, "112412");
@@ -123,7 +187,11 @@ async function main() {
   // addUser("Lily", Role.OrdinaryUser, "12222222");
   // addUser("Sally", Role.OrdinaryUser, "11345252");
   // addUser("Sally", Role.OrdinaryUser, "11348252");
+<<<<<<< HEAD
   fetchUserByName("Lily");
+=======
+//   fetchUserByName("Lily");
+>>>>>>> 20eb95b7b90a530d40ca4f47d108e3053257c342
 }
 
 main()
@@ -132,4 +200,8 @@ main()
   })
   .finally(async () => {
     await prisma.$disconnect();
+<<<<<<< HEAD
   });
+=======
+  });
+>>>>>>> 20eb95b7b90a530d40ca4f47d108e3053257c342
